@@ -22,6 +22,8 @@ npm i
 npm install --save @opentelemetry/api
 npm install --save @opentelemetry/sdk-node
 npm install --save @opentelemetry/auto-instrumentations-node
+npm install --save @opentelemetry/exporter-metrics-otlp-http
+npm install --save @opentelemetry/exporter-trace-otlp-http
 ```
 
 1.5 iniciar aplicação
