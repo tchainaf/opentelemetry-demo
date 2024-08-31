@@ -43,12 +43,12 @@ npm run start
 },
 ```
 
-3.2 remover o arquivo package-lock.js e executar novamente o comando 
+### 3.2 remover o arquivo package-lock.js e executar novamente o comando 
 ```
 npm i
 ```
 
-# Passo 4 - Orquestrar OTPL
+## Passo 4 - Orquestrar OTPL
 ```
 // Configurando o exportador para traces (usando OTLP via HTTP)
 const traceExporter = new OTLPTraceExporter({
@@ -61,14 +61,14 @@ const metricExporter = new OTLPMetricExporter({
 });
 ```
 
-# Passo 5 - Executar Collector
-5.1 realizar download do collector
+## Passo 5 - Executar Collector
+### 5.1 realizar download do collector
 ```
 curl -L https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.68.0/otelcol_0.68.0_darwin_amd64.tar.gz -o otelcol.tar.gz
 tar -xzf otelcol.tar.gz
 ```
 
-## 5.2 criar arquivo otel-config.yaml, arquivo disponivel no repositório
+### 5.2 criar arquivo otel-config.yaml, arquivo disponivel no repositório
 
 ## 5.3 executar otel collector
 ```
