@@ -76,10 +76,10 @@ tar -xzf otelcol.tar.gz
 ```
 ## 5.3 executar otel collector no windows
 ```
-git clone https://github.com/open-telemetry/opentelemetry-collector.git
-cd opentelemetry-collector
-make install-tools
-make otelcorecol
+curl -L -o otelcol.exe https://github.com/open-telemetry/opentelemetry-collector-releases/releases/latest/download/otelcol-windows-amd64.exe
+chmod +x otelcol.exe
+./otelcol.exe --config=config.yaml
+
 ```
 
 
