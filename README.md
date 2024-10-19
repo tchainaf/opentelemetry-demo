@@ -74,6 +74,13 @@ tar -xzf otelcol.tar.gz
 ```
 ./otelcol --config otel-config.yaml
 ```
+## 5.3 executar otel collector no windows
+```
+git clone https://github.com/open-telemetry/opentelemetry-collector.git
+cd opentelemetry-collector
+make install-tools
+make otelcorecol
+```
 
 
 
