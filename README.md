@@ -23,7 +23,7 @@ npm run start
 ```
 
 ## Passo 2 - Orquestração dos logs
-### 2.1 criar arquivo tracing.js na raiz / do projeto
+### 2.1 criar arquivo ```tracing.js``` na raiz / do projeto
 ### 2.2 arquivo está disponível no respositório
 
 ## Passo 3 - Atualizar package.json
