@@ -12,18 +12,37 @@ mkdir opentelemetry-demo
 cd opentelemetry-demo && npx express-generator
 ```
 
-1.3 instalar dependências
+1.3 atualizar arquivo package.json e inserir dependências open telemetry
 ```
-npm i
+{
+  "name": "opentelemetry-demo",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node -r ./tracing.js ./bin/www"
+  },
+  "dependencies": {
+    "@opentelemetry/api": "^1.9.0",
+    "@opentelemetry/auto-instrumentations-node": "^0.57.0",
+    "@opentelemetry/exporter-metrics-otlp-http": "^0.200.0",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.200.0",
+    "@opentelemetry/resources": "^1.9.0",
+    "@opentelemetry/semantic-conventions": "^1.9.0",
+    "@opentelemetry/sdk-node": "^0.200.0",
+    "@opentelemetry/sdk-trace-base": "^1.9.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "^4.21.2",
+    "http-errors": "~1.6.3",
+    "jade": "^1.9.2",
+    "morgan": "~1.9.1"
+  }
+}
 ```
 
-1.4 instalar dependências open telemetry
+1.4 instalar dependências
 ```
-npm install --save @opentelemetry/api
-npm install --save @opentelemetry/sdk-node
-npm install --save @opentelemetry/auto-instrumentations-node
-npm install --save @opentelemetry/exporter-metrics-otlp-http
-npm install --save @opentelemetry/exporter-trace-otlp-http
+npm i
 ```
 
 1.5 iniciar aplicação
@@ -62,24 +81,27 @@ const metricExporter = new OTLPMetricExporter({
 ```
 
 ## Passo 5 - Executar Collector
-### 5.1 realizar download do collector
+### 5.1 MAC: realizar download do collector
 ```
 curl -L https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.68.0/otelcol_0.68.0_darwin_amd64.tar.gz -o otelcol.tar.gz
 tar -xzf otelcol.tar.gz
 ```
 
-### 5.2 criar arquivo otel-config.yaml, arquivo disponivel no repositório
-
-## 5.3 executar otel collector
-```
-./otelcol --config otel-config.yaml
-```
-## 5.3 executar otel collector no windows
+### 5.1 WINDOWS: realizar download do collector
 ```
 curl -L -o otelcol.exe https://github.com/open-telemetry/opentelemetry-collector-releases/releases/latest/download/otelcol-windows-amd64.exe
 chmod +x otelcol.exe
-./otelcol.exe --config=config.yaml
+```
 
+### 5.2 criar arquivo otel-config.yaml, arquivo disponivel no repositório
+
+## 5.3 MAC: executar otel collector
+```
+./otelcol --config otel-config.yaml
+```
+## 5.3 WINDOWS: executar otel collector no windows
+```
+./otelcol.exe --config=config.yaml
 ```
 
 
