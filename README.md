@@ -12,7 +12,22 @@ mkdir opentelemetry-demo
 cd opentelemetry-demo && npx express-generator
 ```
 
-1.3 atualizar arquivo package.json e inserir dependências open telemetry
+1.3 instalar dependências
+```
+npm i
+```
+
+1.5 iniciar aplicação
+```
+npm run start
+```
+
+## Passo 2 - Orquestração dos logs
+### 2.1 criar arquivo tracing.js na raiz / do projeto
+### 2.2 arquivo está disponível no respositório
+
+## Passo 3 - Atualizar package.json
+### 3.1 atualizar arquivo package.json e inserir dependências open telemetry
 ```
 {
   "name": "opentelemetry-demo",
@@ -38,28 +53,6 @@ cd opentelemetry-demo && npx express-generator
     "morgan": "~1.9.1"
   }
 }
-```
-
-1.4 instalar dependências
-```
-npm i
-```
-
-1.5 iniciar aplicação
-```
-npm run start
-```
-
-## Passo 2 - Orquestração dos logs
-### 2.1 criar arquivo tracing.js na raiz / do projeto
-### 2.2 arquivo está disponível no respositório
-
-## Passo 3 - Atualizar package.json
-3.1 alterar o arquivo package.json
-```
-"scripts": {
-"start": "node -r ./tracing.js ./bin/www"
-},
 ```
 
 ### 3.2 remover o arquivo package-lock.js e executar novamente o comando 
