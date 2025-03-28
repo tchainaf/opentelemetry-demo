@@ -94,7 +94,7 @@ chmod +x otelcol.exe
 ```
 ## 5.3 WINDOWS: executar otel collector no windows
 ```
-./otelcol.exe --config=config.yaml
+./otelcol.exe --config=otel-config.yaml
 ```
 
 
