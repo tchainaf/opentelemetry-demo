@@ -5,8 +5,8 @@ receivers:
       http:
 
 exporters:
-  logging:
-    loglevel: debug
+  debug:
+    verbosity: detailed
   otlp:
     endpoint: "localhost:4318"
 
@@ -14,7 +14,7 @@ service:
   pipelines:
     traces:
       receivers: [otlp]
-      exporters: [logging, otlp]
+      exporters: [debug, otlp]
     metrics:
       receivers: [otlp]
-      exporters: [logging, otlp]
+      exporters: [debug, otlp]

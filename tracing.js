@@ -23,10 +23,14 @@ const metricExporter = new OTLPMetricExporter({
 // habilitar auto-instrumentations
 const traceExporterConsole = new ConsoleSpanExporter();
 const sdk = new opentelemetry.NodeSDK({
-  resource: new Resource({
-    [SemanticResourceAttributes.SERVICE_NAME]: 'my-service',
-  }),
-  traceExporterConsole,
+  resource: Resource.default().merge(
+    new Resource({
+      [SemanticResourceAttributes.SERVICE_NAME]: 'my-service',
+    })
+  ), 
+  //traceExporter: metricExporter,
+  //metricExporter: metricExporter,
+  traceExporter: traceExporterConsole,
   instrumentations: [getNodeAutoInstrumentations()]
 });
 

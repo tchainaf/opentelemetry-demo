@@ -1,33 +1,22 @@
 # OPEN TELEMETRY HANDS-ON
 
-## Passo 1 - Criar projeto e instalar depêndencias
+## Passo 1 - Criar projeto NodeJS
 
-1.1 criar diretório
+### 1.1 criar diretório
 ```
 mkdir opentelemetry-demo
 ```
 
-1.2 acessar diretório e instalar express
+### 1.2 acessar diretório e instalar express
 ```
 cd opentelemetry-demo && npx express-generator
 ```
 
-1.3 instalar dependências
-```
-npm i
-```
-
-1.5 iniciar aplicação
-```
-npm run start
-```
-
 ## Passo 2 - Orquestração dos logs
-### 2.1 criar arquivo ```tracing.js``` na raiz / do projeto
-### 2.2 arquivo está disponível no respositório
+### 2.1 criar arquivo `tracing.js` na raiz do projeto, arquivo está disponível no respositório
 
-## Passo 3 - Atualizar package.json
-### 3.1 atualizar arquivo package.json e inserir dependências open telemetry
+## Passo 3 - Atualizar o package.json
+### 3.1 atualizar arquivo package.json, inserindo as dependências open telemetry
 ```
 {
   "name": "opentelemetry-demo",
@@ -55,12 +44,17 @@ npm run start
 }
 ```
 
-### 3.2 remover o arquivo package-lock.js e executar novamente o comando 
+### 3.2 instalar dependências
 ```
 npm i
 ```
 
-## Passo 4 - Orquestrar OTPL
+### 3.3 iniciar aplicação
+```
+npm run start
+```
+
+## Passo 4 - Orquestrar OTLP
 ```
 // Configurando o exportador para traces (usando OTLP via HTTP)
 const traceExporter = new OTLPTraceExporter({
@@ -74,27 +68,17 @@ const metricExporter = new OTLPMetricExporter({
 ```
 
 ## Passo 5 - Executar Collector
-### 5.1 MAC: realizar download do collector
+### 5.1 realizar download do collector
 ```
-curl -L https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.68.0/otelcol_0.68.0_darwin_amd64.tar.gz -o otelcol.tar.gz
-tar -xzf otelcol.tar.gz
-```
-
-### 5.1 WINDOWS: realizar download do collector
-```
-curl -L -o otelcol.exe https://github.com/open-telemetry/opentelemetry-collector-releases/releases/latest/download/otelcol-windows-amd64.exe
-chmod +x otelcol.exe
+curl --proto '=https' --tlsv1.2 -fOL https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.122.1/otelcol_0.122.1_linux_amd64.tar.gz
+tar -xvf otelcol_0.122.1_linux_amd64.tar.gz
 ```
 
-### 5.2 criar arquivo otel-config.yaml, arquivo disponivel no repositório
+### 5.2 criar arquivo `otel-config.yaml`, arquivo está disponível no repositório
 
-## 5.3 MAC: executar otel collector
+### 5.3 executar otel collector
 ```
 ./otelcol --config otel-config.yaml
-```
-## 5.3 WINDOWS: executar otel collector no windows
-```
-./otelcol.exe --config=otel-config.yaml
 ```
 
 
